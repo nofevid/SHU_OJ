@@ -16,11 +16,16 @@ global screen_top_y
 global screen_bottom_x
 global screen_bottom_y
 global k_system
+global k_size
 global time_end
 global ex
 global ey
 global flag
+global eye_x
+global eye_y
 
+eye_x = []
+eye_y = []
 
 m = PyMouse()
 x_dim, y_dim = m.screen_size()
@@ -36,7 +41,7 @@ def run ():
     cap = cv2.VideoCapture(0)
     time_end = 0
     flag = 0
-
+		
     while(True):
         ret, img = cap.read()
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -77,9 +82,13 @@ def run ():
                     ex = i[0]
                     ey = i[1]
                     
-                    '''
-                    m.move(x,y)
-                    '''
+                    if n ＜ 9:
+                        eye_x[n] = ex
+                        eye_y[n] = ey
+                        n = n + 1
+                    if n ＜＝ 9:
+                        n = 0
+                    
                     if flag == 1:       #眨眼；睁眼，停止计时
                         time_end = time.time()
                         flag = 0
@@ -97,15 +106,41 @@ def run ():
             time_start = time.time()        #眨眼；闭眼，计时开始
             flag = 1
         time_length = time_end - time_start     #眨眼；时间差
+        if time_length >1 and time_length < 3:
+		click = 1
+		click_x = eyex
+		click_y = eyey
+	if time_length > 3:
+		click = 2
+		click_x = eyex
+		click_y = eyey
+	
+	if click = 1:
+		m.click(click_x,click_y)
+	if click = 1:
+		m.click(click_x,click_y)
+		m.click(click_x,click_y)
+		
+        '''
         if time_length >= 0:
-        print (time_length)
+            print (time_length)
+            '''
+		eyex = sum(eye_x)
+		eyey = sum(eye_y) 
+        matrix_point = mat([(eyey - screen_center_y),(eyex - screen_center_x)])
+		matrix_trans = mat([mat.cos(angle_trans),mat.sin(angle_trans)],[-mat.sin(angle_trans),mat.cos(angle_trans)])
+		matrix_screen = matrix_point * matrix_trans
+		mouse_x = matrix_screen[0,0]
+		mouse_y = matrix_screen[0,1]
+
+        m.move(x,y)
     
         '''
         cv2.imshow('img',th1)
         cv2.imshow('img2',roi_eye)
+	'''	
         if cv2.waitKey(30) & 0xFF == ord('q'):
             break
-        '''
 
     cap.release()
     out.release()
@@ -152,11 +187,20 @@ def collect ():
                 #print (i[2])
                 
                 if radius >= 5:         #注意：5要修改
+                    ex = i[0]
+                    ey = i[1]
+                    
+                    if n ＜ 9:
+                        eye_x[n] = ex
+                        eye_y[n] = ey
+                        n = n + 1
+                    if n ＜＝ 9:
+                        n = 0
+                    
                     '''
-                        ex = i[0]
-                        ey = i[1]
-                        m.move(x,y)
-                        '''
+                    m.move(x,y)
+                    '''
+                    
                     if flag == 1:       #眨眼；睁眼，停止计时
                         time_end = time.time()
                         flag = 0
@@ -170,11 +214,14 @@ def collect ():
         '''
             
             if circles is None and flag != 1:   #时间差作计时器
-            time_start = time.time()        #眨眼；闭眼，计时开始
-            flag = 1
-                time_length = time_end - time_start     #眨眼；时间差
-                    if time_length >= 0:
-                        print (time_length)
+                time_start = time.time()        #眨眼；闭眼，计时开始
+                flag = 1
+            time_length = time_end - time_start     #眨眼；时间差
+            
+            '''        
+            if time_length >= 0:
+                    print (time_length)
+                        '''
                         
                         '''
                             cv2.imshow('img',th1)
@@ -183,10 +230,15 @@ def collect ():
                             break
                             '''
 
-cap.release()
-out.release()
-cv2.destroyAllWindows()
+	cap.release()
+	out.release()
+	cv2.destroyAllWindows()
 
+def calculate():
+	k_system = (screen_top_y - screen_bottom_y)/(screen_top_x - screen_bottom_x)
+k_size = dim_y / (numpy.sqrt( numpy.square(screen_top_y - screen_bottom_y) + numpy.square(screen_top_x - screen_bottom_x) ))
+angle_eye_system = math.atan(k_system)
+angle_trans = pi/2 - angle_eye_system
 
 root = Tk()
 root.title('眼控鼠标')
@@ -205,18 +257,11 @@ for lang,num in Language:
     l.pack()
     b.pack(anchor=W,fill=X) 
     
-theButton1=Button(root,text='采集'',command=collect')
+theButton1=Button(root,text='采集',command=collect() )
 theButton1.pack(pady=20)
-theButton2=Button(root,text='开始'',command=run')
+theButton2=Button(root,text='计算',command=calculate() )
 theButton2.pack(pady=20)
+theButton3=Button(root,text='开始',command=run() )
+theButton3.pack(pady=20)
+
 mainloop()
-
-
-k_system = (screen_top_y - screen_bottom_y)/(screen_top_x - screen_bottom_x)
-angle_eye_system = math.atan(k_system)
-angle_trans = pi/2 - angle_eye_system
-matrix_point = mat([(ey - screen_center_y),(ex - screen_center_x)])
-matrix_trans = mat([mat.cos(angle_trans),mat.sin(angle_trans)],[-mat.sin(angle_trans),mat.cos(angle_trans)])
-matrix_screen = matrix_point * matrix_trans
-mouse_x = matrix_screen[0,0]
-mouse_y = matrix_screen[0,1]
