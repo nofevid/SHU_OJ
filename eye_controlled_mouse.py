@@ -213,10 +213,10 @@ def collect ():
         break
         '''
             
-            if circles is None and flag != 1:   #时间差作计时器
-                time_start = time.time()        #眨眼；闭眼，计时开始
-                flag = 1
-            time_length = time_end - time_start     #眨眼；时间差
+        if circles is None and flag != 1:   #时间差作计时器
+             time_start = time.time()        #眨眼；闭眼，计时开始
+             flag = 1
+        time_length = time_end - time_start     #眨眼；时间差
             
             '''        
             if time_length >= 0:
@@ -236,9 +236,9 @@ def collect ():
 
 def calculate():
 	k_system = (screen_top_y - screen_bottom_y)/(screen_top_x - screen_bottom_x)
-k_size = dim_y / (numpy.sqrt( numpy.square(screen_top_y - screen_bottom_y) + numpy.square(screen_top_x - screen_bottom_x) ))
-angle_eye_system = math.atan(k_system)
-angle_trans = pi/2 - angle_eye_system
+	k_size = dim_y / (numpy.sqrt( numpy.square(screen_top_y - screen_bottom_y) + numpy.square(screen_top_x - screen_bottom_x) ))
+	angle_eye_system = math.atan(k_system)
+	angle_trans = pi/2 - angle_eye_system
 
 root = Tk()
 root.title('眼控鼠标')
