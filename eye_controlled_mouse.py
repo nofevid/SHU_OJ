@@ -107,19 +107,19 @@ def run ():
             flag = 1
         time_length = time_end - time_start     #眨眼；时间差
         if time_length >1 and time_length < 3:
-		click = 1
-		click_x = eyex
-		click_y = eyey
-	if time_length > 3:
-		click = 2
-		click_x = eyex
-		click_y = eyey
+			click = 1
+			click_x = eyex
+			click_y = eyey
+		if time_length > 3:
+			click = 2
+			click_x = eyex
+			click_y = eyey
 	
-	if click = 1:
-		m.click(click_x,click_y)
-	if click = 1:
-		m.click(click_x,click_y)
-		m.click(click_x,click_y)
+		if click = 1:
+			m.click(click_x,click_y)
+		if click = 1:
+			m.click(click_x,click_y)
+			m.click(click_x,click_y)
 		
         '''
         if time_length >= 0:
