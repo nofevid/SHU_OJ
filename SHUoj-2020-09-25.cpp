@@ -1,3 +1,20 @@
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <cmath>
+#include <cstring>
+#include <string>
+#include <queue>
+#include <algorithm>
+
+using namespace std;
+
+
+
+
 /*
 描述
 形如a3=b3+c3+d3的等式被称为完美立方等式。例如123=63+83+103 。编写一个程序，对任给的正整数N(N≤100)，寻找所有的四元组(a,b,c,d)，使得a3=b3+c3+d3，其中a,b,c,d 大于 1, 小于等于N，且b≤c≤d。
@@ -20,13 +37,9 @@ Cube = 24, Triple = (12,16,20)
 */
 
 
-#include <iostream>
-#include <iomanip>
-#include <math.h>
 
-using namespace std;
 
-int main() {
+int A() {
 	int a, b, c, d, N;
 
 	cin >> N;
@@ -71,13 +84,9 @@ n行，每行输出对应一个输入。输出应是一个正整数，指明满�
 
 
 
-#include <iostream>
-#include <iomanip>
-#include <math.h>
 
-using namespace std;
 
-int main() {
+int B() {
 	int n, i, a, b, m;
 
 	int num[50];
@@ -115,15 +124,6 @@ int main() {
 
 
 
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
-#include <cmath>
-#include <cstring>
-#include <string>
-#include <queue>
-#include <algorithm>
-using namespace std;
 
 int sum;
 
@@ -139,7 +139,7 @@ void count(int a, int b)
 		if (i > b / i) break;
 	}
 }
-int main()
+int C()
 {
 	int n;
 	int a;
@@ -185,11 +185,7 @@ cba
 
 
 
-#include <iostream>
-#include <math.h>
-#include <iomanip>
 
-using namespace std;
 
 int fun(int m, int n) {
 	if (m == 0 || n == 1)
@@ -200,12 +196,12 @@ int fun(int m, int n) {
 		return fun(m, n - 1) + fun(m - n, n);
 }
 
-int main() {
+int D() {
 
 	int num,i;
 
-	int M[20];
-	int N[20];
+	int M[20], m;
+	int N[20], n;
 
 	cin >> num;
 
@@ -247,8 +243,8 @@ int main() {
 
 
 
-#include <stdio.h>
-int fun(int m,int n){
+
+int fun_2(int m,int n){
 	if(m==0||n==1)
 		return 1;
 	if(m <n)
@@ -257,7 +253,7 @@ int fun(int m,int n){
 		return fun(m,n-1)+fun(m-n,n);	
 }
  
-int main(){
+int E(){
 	int m,n;//m个苹果 n个盘子 
 	scanf("%d%d",&n,&m);
 	printf("%d",fun(m,n));
@@ -311,13 +307,9 @@ int main(){
 
 
 
-#include <iostream>
-#include <iomanip>
-#include <math.h>
 
-using namespace std;
 
-int main() {
+int F() {
 	float R, Y;
 	long double M;
 
@@ -336,11 +328,7 @@ int main() {
 
 
 
-#include<iostream>
-#include<cstdio>
-#include<cmath>
-using namespace std;
-int main()
+int G()
 {
 int n,m,a,b,c,s2,s3,i;double s1;
 cin>>a>>m>>n;
@@ -354,3 +342,14 @@ cout<<s2;
 }
 
 
+int main(){
+	A();
+	B();
+	C();
+	D();
+	E();
+	F();
+	G();
+
+	return 0;
+}

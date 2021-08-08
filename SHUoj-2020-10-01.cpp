@@ -1,3 +1,14 @@
+#include<iostream>
+#include<cmath>
+#include<algorithm>
+#include <numeric>
+
+using namespace std;
+
+
+
+
+/*
 描述
 给定两个正整数m, n(m>n)，输出m除以n的带余除法的算式。m=q*n+r（其中0<=r<n，r为0时只输出m=q*n）。
 
@@ -11,15 +22,14 @@
 7 2
 样例输出1
 7 = 3*2 + 1
+*/
 
 
 
 
-#include<iostream>
 
-using namespace std;
 
-int main() {
+int A() {
     int a, b, shang, yushu;
 
     cin >> a >> b;
@@ -41,6 +51,7 @@ int main() {
 
 
 
+/*
 描述
 给定3个实数a, b, c作为3条线段的长度，判断由它们是否能构成一个三角形。
 
@@ -54,15 +65,14 @@ int main() {
 3 4 5
 样例输出1
 Yes
+*/
 
 
 
 
-#include<iostream>
 
-using namespace std;
 
-int main() {
+int B() {
     double a, b, c;
 
     cin >> a >> b >> c;
@@ -79,6 +89,8 @@ int main() {
 
 
 
+
+/*
 描述
 给定一个百分制的分数（整数），输出其对应的五级分制分数。对应关系如下：
 
@@ -95,15 +107,13 @@ A级：90~100，B级：80~89，C级：70~79，D级：60~69，E级：0~59。
 85
 样例输出1
 B
+*/
 
 
 
 
-#include<iostream>
 
-using namespace std;
-
-int main() {
+int C() {
     int score;
 
     cin >> score;
@@ -127,6 +137,7 @@ int main() {
 
 
 
+/*
 描述
 给定3个浮点型数据a、b、c（a<>0)，求一元二次方程ax^2+bx+c的根。
 
@@ -140,16 +151,14 @@ int main() {
 1 2 -3
 样例输出1
 -3, 1
+*/
 
 
 
 
-#include<iostream>
-#include<cmath>
 
-using namespace std;
 
-int main() {
+int D() {
     double a, b, c, delta, x1, x2;
 
     cin >> a >> b >> c;
@@ -179,6 +188,7 @@ int main() {
 
 
 
+/*
 描述
 给定3个整数a、b、c，要求将它们按从小到大排序。
 
@@ -192,16 +202,14 @@ int main() {
 6 -3 1
 样例输出1
 -3 1 6
+*/
 
 
 
 
-#include<iostream>
-#include<cmath>
 
-using namespace std;
 
-int main() {
+int E() {
     int a, b, c;
 
     cin >> a >> b >> c;
@@ -232,6 +240,7 @@ int main() {
 
 
 
+/*
 描述
 给定一系列整数，计算其总和。
 
@@ -246,18 +255,16 @@ int main() {
 1 2 3 4 5
 样例输出1
 5, 15
+*/
 
 
 
 
 
 
-#include<iostream>
-#include<cmath>
 
-using namespace std;
 
-int main() {
+int F() {
     int n, i, sum;
     int num[100];
 
@@ -281,6 +288,7 @@ int main() {
 
 
 
+/*
 描述
 给定一系列数据，去掉其中一个最大值、一个最小值后求平均值。
 
@@ -294,17 +302,13 @@ int main() {
 6 8 9 7 1 10 2 3 5 5
 样例输出1
 10, 1, 10, 5.625
+*/
 
 
 
 
-#include<iostream>
-#include<cmath>
-#include<algorithm>
 
-using namespace std;
-
-int main() {
+int G() {
     int sum;
     double Sum, maxnum, minnum, ave;
 
@@ -335,6 +339,8 @@ int main() {
 
 
 
+
+/*
 描述
 给定两个正整数a(0<a<10)和n，计算[a]+[aa]+…+[a…a]的值。例如：a为2，n为5时，则计算2＋22＋222＋2222＋22222。
 
@@ -352,14 +358,12 @@ int main() {
 Case 1: 2 + 22 + 222 + 2222 + 22222 = 24690
 Case 2: 3 + 33 + 333 + 3333 + 33333 + 333333 = 370368
 Case 3: 1 + 11 + 111 + 1111 = 1234
+*/
 
 
 
 
-#include <iostream>
-#include <cmath>
 
-using namespace std;
 
 void cal(int a, int n) {
 	double res, an;
@@ -382,7 +386,7 @@ void cal(int a, int n) {
 
 }
 
-int main() {
+int H() {
 	int exnum;
 	int a[50], n[50];
 
@@ -399,7 +403,7 @@ int main() {
 
 
 
-
+/*
 描述
 给定一个正整数n，计算n!的尾部0的个数。
 
@@ -417,15 +421,14 @@ int main() {
 Case 1: 8, 1
 Case 2: 16, 3
 Case 3: 30, 7 
+*/
 
 
 
 
-#include <iostream>
-#include <cmath>
-using namespace std;
 
-long long cal(int a) {
+
+long long cal_2(int a) {
 	long long res, an;
 	res = 0;
 	for (long long i = 1; i <= a; i++) {
@@ -441,14 +444,14 @@ long long cal(int a) {
 	return res;
 }
 
-int main() {
+int I() {
 
 	for (int exnum = 1; exnum <= 100; exnum++) {
 		long long n, res;
 
 		cin >> n;
 
-		res = cal(n);
+		res = cal_2(n);
 
 		cout << "Case " << exnum << ": " << n << ", " << res << endl;
 	}
@@ -459,6 +462,7 @@ int main() {
 
 
 
+/*
 描述
 对于给定的一个正整数，若该数为偶数则将其除以2，若为奇数则将其乘3再加1。反复进行上述过程，直到结果为1时停止。这就是著名的“3n+1”问题。要求对于给定的整数，求按3n+1规则变换到1所需要的数字变换次数。
 
@@ -476,15 +480,14 @@ Case 2: 1023, 62
 Case 3: 0, -1
 Case 4: 100, 25
 Case 5: 66, 27
+*/
 
 
 
 
-#include <iostream>
-#include <cmath>
-using namespace std;
 
-long long cal(int a) {
+
+long long cal_3(int a) {
 	long long res;
 	res = 0;
 
@@ -506,7 +509,7 @@ long long cal(int a) {
 	return res;
 }
 
-int main() {
+int J() {
     long long num[100], sum, ans;
 
     sum = 0;
@@ -519,7 +522,7 @@ int main() {
     }
 
     for (int i = 0; i < sum; i++) {
-        ans = cal(num[i]);
+        ans = cal_3(num[i]);
 
         cout << "Case " << i+1 << ": " << num[i] << ", " << ans << endl;
     }
@@ -530,6 +533,7 @@ int main() {
 
 
 
+/*
 描述
 给定一个正整数，判断其是否为素数。
 
@@ -547,17 +551,14 @@ int main() {
 Case 1: Number 31 is prime.
 Case 2: Number 2 is prime.
 Case 3: Number 27 is not prime.
+*/
 
 
 
 
 //time limit exceeded
 
-#include <iostream>
-#include <cmath>
-using namespace std;
-
-long long cal(int a) {
+long long cal_4(int a) {
 	long long res;
 
     res = 0;
@@ -576,14 +577,14 @@ long long cal(int a) {
     }
 }
 
-int main() {
+int K() {
 
     for (int exnum = 1; exnum <= 100; exnum++) {
         long long n, res;
 
         cin >> n;
 
-        res = cal(n);
+        res = cal_4(n);
 
         if (res == 0) {
             cout << "Case " << exnum << ": Number " << n << " is prime." << endl;
@@ -600,11 +601,7 @@ int main() {
 
 
 
-#include <iostream>
-#include <cmath>
-using namespace std;
-
-int main() {
+int K_2() {
 
     int n, exnum = 0;
 
@@ -641,6 +638,7 @@ int main() {
 
 
 
+/*
 描述
 给定一个十进制正整数，判断其是否为同构数。所谓同构数是这样的一些数，它出现在其平方数的右边，例如5是5^2=25右边的数，25是25^2=625右边的数，所以5和25都是同构数。
 
@@ -658,15 +656,13 @@ int main() {
 Case 1: 5, Yes
 Case 2: 15, No
 Case 3: 25, Yes
+*/
 
 
 
 
-#include <iostream>
-#include <cmath>
-using namespace std;
 
-int cal(int a) {
+int cal_5(int a) {
     int res, ten, i, mid_res;
     res = 0;
     i = 1;
@@ -689,14 +685,14 @@ int cal(int a) {
     }
 }
 
-int main() {
+int L() {
 
     int n, exnum = 0;
 
     while (cin >> n) {
         int res;
 
-        res = cal(n);
+        res = cal_5(n);
         exnum++;
         //cal(n);
 
@@ -714,6 +710,7 @@ int main() {
 
 
 
+/*
 描述
 给定两个十进制正整数，判断它们是否为亲密数对。对于两正整数a，b，若a的所有包含1但不包含自身的因子的和等于b，并且b的所有包含1但不包含自身的因子的和等于a，则称a，b为一对亲密数。例如，a=6，b=6是一亲密数对。
 
@@ -731,16 +728,13 @@ int main() {
 Case 1: 4, 6, No
 Case 2: 220, 284, Yes
 Case 3: 1210, 1184, Yes
+*/
 
 
 
 
-#include <iostream>
-#include <cmath>
-#include <numeric>
-using namespace std;
 
-int cal(long a, long b) {
+int cal_6(long a, long b) {
     int res = 0, num[2] = {0, 0}, sum_a = 0, sum_b = 0;
     long de_a[100], de_b[100];
 
@@ -785,14 +779,14 @@ int cal(long a, long b) {
 
 }
 
-int main() {
+int M() {
 
     long a, b, exnum = 0;
 
     while (cin >> a >> b) {
         int res;
 
-        res = cal(a, b);
+        res = cal_6(a, b);
         exnum++;
         //cal(n);
 
@@ -808,7 +802,7 @@ int main() {
 
 
 
-
+/*
 描述
 对于给定的人民币金额n（分），问有多少种方案将其兑换成1分、2分、5分。
 
@@ -826,15 +820,12 @@ int main() {
 Case 1: 10, 10
 Case 2: 100, 541
 Case 3: 150, 1186
+*/
 
 
 
 
-#include <iostream>
-
-using namespace std;
-
-int cal(long a) {
+int cal_7(long a) {
     int res = 0, an = 0;
     
     for (int i = 0; i <= a / 5; i++)
@@ -847,14 +838,14 @@ int cal(long a) {
 
 }
 
-int main() {
+int N() {
 
     long a, exnum = 0;
 
     while (cin >> a) {
         int res;
 
-        res = cal(a);
+        res = cal_7(a);
         exnum++;
         //cal(n);
 
@@ -867,7 +858,7 @@ int main() {
 
 
 
-
+/*
 描述
 给定两个有效正整数year及month，打印该月的日历。
 
@@ -904,13 +895,11 @@ Sun Mon Tue Wed Thu Fri Sat
  21  22  23  24  25  26  27
  28
 
+*/
 
 
 
 //wrong answer （输出问题）
-#include <iostream>
-
-using namespace std;
 
 int len(int a, int b) {
     int i = 0;
@@ -942,7 +931,7 @@ int len(int a, int b) {
 
 }
 
-void cal(int y, int m) {
+void cal_8(int y, int m) {
     int res = 0, an = 0, days = 0, leep_year = 0, first_day = 0, week_day = 0;
 
     cout << "Sun Mon Tue Wed Thu Fri Sat" << endl;
@@ -1080,7 +1069,7 @@ void cal(int y, int m) {
 
 }
 
-int main() {
+int O() {
 
     int a, b, exnum = 0;
 
@@ -1099,11 +1088,7 @@ int main() {
 
 
 
-#include <iostream>
-#include <math.h>
-#include <iomanip>
-using namespace std;
-
+//另一种解法，但并未完善
 int nyear(int y)
 {
     if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0)
@@ -1152,7 +1137,7 @@ int Days(int y, int m)
     }
     return sum;
 }
-int main()
+int O_2()
 {
     int   year, month, i, j, k = 0, sum = 0, blank;
 
@@ -1172,20 +1157,47 @@ int main()
         cout << "Sun Mon Tue Wed Thu Fri Sat" << endl;
         for (i = 0; i < blank; i++)
         {
-            cout << setw(4) << " ";
+            //cout << setw(4) << " ";
         }
         for (i = 1, j = blank + i; i <= nmonth(year, month); i++, j++)
         {
 
             if (j % 7 != 0 && i != nmonth(year, month))
-                cout << setw(3) << i << " ";
+                //cout << setw(3) << i << " ";
+                cout << '1';
             else
-                cout << setw(3) << i << endl;
+                //cout << setw(3) << i << endl;
+                cout << '1';
         }
 
         if ((j - 1) % 7 == 0 && i == nmonth(year, month) + 1)
             cout << endl;
 
     }
+    return 0;
+}
+
+
+
+int main(){
+    A();
+    B();
+    C();
+    D();
+    E();
+    F();
+    G();
+    H();
+    I();
+    J();
+    K();
+    K_2();
+    L();
+    M();
+    M();
+    N();
+    O();
+    O_2();
+
     return 0;
 }
